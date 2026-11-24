@@ -21,6 +21,13 @@ abstract class BaseIntegrationTest {
     @Autowired protected SwitchGateRepo gateRepo;
     @Autowired protected RollbackRecordRepo rollbackRepo;
     @Autowired protected EvidenceEntryRepo evidenceRepo;
+    @Autowired protected com.flood.statemigrate.repo.AccessImpactSnapshotRepo impactSnapshotRepo;
+    @Autowired protected com.flood.statemigrate.repo.DepthObservationRepo depthObsRepo;
+    @Autowired protected com.flood.statemigrate.repo.ClosureOverrideRepo closureOverrideRepo;
+    @Autowired protected com.flood.statemigrate.repo.RoadLinkRepo roadLinkRepo;
+    @Autowired protected com.flood.statemigrate.repo.CityBlockRepo cityBlockRepo;
+    @Autowired protected com.flood.statemigrate.repo.ServiceFacilityRepo serviceFacilityRepo;
+    @Autowired protected com.flood.statemigrate.repo.RoadNetworkRepo roadNetworkRepo;
 
     protected ScenarioBuilder scenario;
 
@@ -37,6 +44,13 @@ abstract class BaseIntegrationTest {
         proofRepo.deleteAll();
         rulePackageRepo.deleteAll();
         streamRepo.deleteAll();
+        impactSnapshotRepo.deleteAll();
+        depthObsRepo.deleteAll();
+        closureOverrideRepo.deleteAll();
+        roadLinkRepo.deleteAll();
+        cityBlockRepo.deleteAll();
+        serviceFacilityRepo.deleteAll();
+        roadNetworkRepo.deleteAll();
         scenario = new ScenarioBuilder(streamRepo, rulePackageRepo, eventRepo, checkpointRepo);
     }
 }
